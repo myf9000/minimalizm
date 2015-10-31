@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 
-<p><%= @post.description %> </p>
+<p><%= raw@post.description %> </p>
 
 <p><%= @post.category %> </p>
 <%= image_tag @post.avatar.url(:medium) %>

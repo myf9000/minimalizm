@@ -33,7 +33,8 @@ gem "paperclip", "~> 4.3"
 gem 'acts-as-taggable-on'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'ckeditor'
+gem 'jquery-turbolinks'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
