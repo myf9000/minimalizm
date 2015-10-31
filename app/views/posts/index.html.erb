@@ -1,10 +1,5 @@
 <h1>Posts: (<%= @posts.count %>) </h1>
 
-<div id="tag_cloud">
-  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
 <hr>
 <% @posts.each do |f| %>
   <%= link_to f.title, f %>
@@ -13,3 +8,13 @@
 
 <hr>
 <%= link_to "New", new_post_path %>
+
+<hr>
+<h2>Categories: </h2>
+<%= link_to "Motywacja", category_path("Motywacja") %>
+<br>
+<%= link_to "Zdrowie", category_path("Zdrowie") %>
+<br>
+<%= link_to "Dieta", category_path("Dieta") %>
+<br>
+<%= link_to "Rozwój", category_path("Rozwój") %>

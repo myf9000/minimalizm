@@ -1,8 +1,8 @@
 <%= simple_form_for @post, html: { multipart: true } do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :category %>
+  <%= f.label :category %>
+  <%= f.select :category, [ "Zdrowie", "Motywacja", "Dieta", "Rozwój" ], { :prompt => 'Select One' }, { class: "form-control", :id => "select" } %>
   <%= f.input :avatar, as: :file %>
-  <%= f.input :tag_list%>
   <%= f.button :submit %>
 <% end %>

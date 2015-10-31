@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_id, only: [:show, :edit, :update, :destroy]
-  before_action :params_post, only: [:params_post]
+  before_action :set_posts, only: [:index, :category]
 
   def new
   	@post = Post.new
@@ -10,14 +10,19 @@ class PostsController < ApplicationController
   end
 
   def index
-	  if params[:tag]
-	    @posts = Post.tagged_with(params[:tag])
-	  else
-	  	@posts = Post.all
-	  end
   end
 
   def show
+  end
+
+  def category
+    if params[:category]
+      @posts = @posts.select do |f| 
+        if f.category == params[:category]
+          f
+        end
+      end
+    end
   end
 
   def create 
@@ -50,6 +55,10 @@ class PostsController < ApplicationController
   end
 
   def params_post
-  	params.require(:post).permit(:title, :description, :category, :avatar, :tag_list)
+  	params.require(:post).permit(:title, :description, :category, :avatar)
+  end
+
+  def set_posts
+    @posts = Post.all.order("created_at DESC")
   end
 end

@@ -1,0 +1,9 @@
+<h1>Posts: (<%= @posts.count %>) </h1>
+
+<hr>
+<% @posts.each do |f| %>
+  <%= link_to f.title, f %>
+  <br>
+<% end %>
+<br>
+<%= link_to "Back", root_path %>
