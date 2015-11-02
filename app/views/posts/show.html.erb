@@ -12,6 +12,6 @@
 <hr>
 <p>Viewed: <%= @post.impressionist_count(:filter=>:ip_address) %> </p>
 <hr>
- 
+<%= render 'disqus' %>
 <hr>
 <%= link_to "Back", root_path %>
