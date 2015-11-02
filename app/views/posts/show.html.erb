@@ -10,5 +10,6 @@
 <hr>
 <%= social_share_button_tag(@post.title) %>
 <hr>
-
+<p>Viewed: <%= @post.impressionist_count(:filter=>:ip_address) %> </p>
+<hr>
 <%= link_to "Back", root_path %>

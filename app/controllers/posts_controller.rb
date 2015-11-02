@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_id, only: [:show, :edit, :update, :destroy]
   before_action :set_posts, only: [:index, :category]
+  impressionist :actions=>[:show]
 
   def new
   	@post = Post.new
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    impressionist(@post)
   end
 
   def category
