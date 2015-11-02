@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], class: "search-query", placeholder: "namesearch", type: "search", data: {autocomplete: posts_autocomplete_post_title_path} %>  
+<%= submit_tag "Search" %>
+<%end%>
 <%= yield %>
 
 </body>

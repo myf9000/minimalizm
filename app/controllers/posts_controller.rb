@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :set_posts, only: [:index, :category]
   impressionist :actions=>[:show]
 
+  autocomplete :post, :title, :full => true
+
   def new
   	@post = Post.new
   end
@@ -11,6 +13,10 @@ class PostsController < ApplicationController
   end
 
   def index
+    if params[:search]
+      @posts = Post.title_like("%#{params[:search]}%").order('title')
+    else
+    end
   end
 
   def show

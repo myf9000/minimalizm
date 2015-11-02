@@ -39,6 +39,10 @@ gem 'social-share-button'
 
 gem 'impressionist'
 gem 'friendly_id', '~> 5.1.0'
+
+gem 'rails4-autocomplete'
+# jQuery UI dependency.
+gem 'jquery-ui-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  resources :posts
 
+  get 'posts/autocomplete_post_title'
+  resources :posts 
   root 'posts#index'
   get 'category/:category', to: 'posts#category', as: :category
   # The priority is based upon order of creation: first created -> highest priority.

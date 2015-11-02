@@ -5,4 +5,7 @@ class Post < ActiveRecord::Base
   is_impressionable
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+
+  scope :title_like, -> (title) { where("title like ?", title)}
 end
