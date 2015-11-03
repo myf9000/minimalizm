@@ -8,7 +8,7 @@
 
 <hr>
 
-<li><%= link_to "New", new_post_path %></li>
+<li><%= link_to "New", new_post_path if can? :create, Post%></li>
    <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
           <li><a href="<%= new_user_registration_path %>">Sign in</a></li>

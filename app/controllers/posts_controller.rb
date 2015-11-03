@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def create 
-  	@post =  current_user.posts.build(params_post)
+  	@post =  current_user.posts.build(post_params)
   	if @post.save
   		redirect_to @post, notice: "Post was created"
   	else
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   def update
-  	if @post.update(params_post)
+  	if @post.update(post_params)
   		redirect_to @post, notice: "Post was updated"
   	else
   		render 'edit'
@@ -64,8 +64,8 @@ class PostsController < ApplicationController
   	@post = Post.friendly.find(params[:id])
   end
 
-  def params_post
-  	params.require(:post).permit(:title, :description, :category, :avatar, :user_id)
+  def post_params
+  	params.require(:post).permit(:title, :description, :category, :avatar)
   end
 
   def set_posts

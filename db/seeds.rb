@@ -10,3 +10,8 @@ User.create!(
              password:              "plusiminus1",
              password_confirmation: "plusiminus1",
              admin:     true)
+
+User.create!(
+             email: "ja170@vp.pl",
+             password:              "plusiminus1",
+             password_confirmation: "plusiminus1")
