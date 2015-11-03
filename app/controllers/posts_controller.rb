@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_id, only: [:show, :edit, :update, :destroy]
   before_action :set_posts, only: [:index, :category]
   impressionist :actions=>[:show]
@@ -6,7 +7,7 @@ class PostsController < ApplicationController
   autocomplete :post, :title, :full => true
 
   def new
-  	@post = Post.new
+  	@post =  current_user.posts.build
   end
 
   def edit
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def create 
-  	@post = Post.new(params_post)
+  	@post =  current_user.posts.build(params_post)
   	if @post.save
   		redirect_to @post, notice: "Post was created"
   	else
@@ -63,7 +64,7 @@ class PostsController < ApplicationController
   end
 
   def params_post
-  	params.require(:post).permit(:title, :description, :category, :avatar)
+  	params.require(:post).permit(:title, :description, :category, :avatar, :user_id)
   end
 
   def set_posts

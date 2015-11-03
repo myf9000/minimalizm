@@ -1,0 +1,25 @@
+<div class="sidebar">
+    <div id="logo">
+      <%= link_to root_path do %>
+        <%= image_tag('logo.png') %>
+      <% end %>
+    </div>
+
+    <ul>
+      <li class="category">Category</li>
+      <li><%= link_to "Motywacja", category_path("Motywacja") %></li>
+      <li><%= link_to "Zdrowie", category_path("Zdrowie") %></li>
+      <li><%= link_to "Dieta", category_path("Dieta") %></li>
+      <li><%= link_to "Rozwój", category_path("Rozwój") %></li>
+    </ul>
+
+    <ul>
+      <li class="category">Search</li>
+      <li>
+        <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "namesearch", type: "search", data: {autocomplete: posts_autocomplete_post_title_path} %>  
+          <%end%>
+      </li>
+    </ul>
+  </div>
+

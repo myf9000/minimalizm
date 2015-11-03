@@ -8,4 +8,5 @@ class Post < ActiveRecord::Base
 
 
   scope :title_like, -> (title) { where("title like ?", title)}
+  belongs_to :user
 end
