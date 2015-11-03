@@ -45,6 +45,8 @@ gem 'rails4-autocomplete'
 gem 'jquery-ui-rails'
 
 gem 'devise'
+gem 'cancan'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
